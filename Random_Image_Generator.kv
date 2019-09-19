@@ -1,0 +1,34 @@
+# For use with Random_Image_Generator.py
+
+<RootBoxLayout>:
+	orientation: 'vertical'
+	
+	# Create the background color of the root layout
+	canvas.before:
+		Color:
+			rgba: 0,0,0,1 # black
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	BoxLayout:
+		size_hint_y: 0.8
+		pos: self.pos
+		Label:
+			size_hint_x: 1
+			id: print_box
+			canvas.before:
+				Color:
+					rgba: 0,0,1,1 # blue
+				Rectangle:
+					pos: self.pos
+					size: self.size
+	BoxLayout:
+		size_hint_y: 0.2
+		orientation: 'horizontal'
+		Button:
+			text: 'Rewind'
+		Button:
+			text: 'Pause/Play'
+			on_press: root.play()
+		Button:
+			text: 'Forward'
