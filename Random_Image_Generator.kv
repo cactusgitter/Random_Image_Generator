@@ -18,17 +18,15 @@
 			id: print_box
 			canvas.before:
 				Color:
-					rgba: 0,0,1,1 # blue
+					rgba: 0,0,0,1 # black
 				Rectangle:
 					pos: self.pos
 					size: self.size
 	BoxLayout:
 		size_hint_y: 0.2
 		orientation: 'horizontal'
+
 		Button:
-			text: 'Rewind'
-		Button:
-			text: 'Pause/Play'
+			font_size: 32
+			text: 'Play / Pause'
 			on_press: root.play()
-		Button:
-			text: 'Forward'

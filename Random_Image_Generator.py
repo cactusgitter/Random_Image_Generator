@@ -18,9 +18,18 @@ from kivy.config import Config
 Config.set('graphics', 'width', '400')
 Config.set('graphics', 'height', '500')
 
-class RootBoxLayout(BoxLayout):
+class RootBoxLayout(BoxLayout):	
+	def __init__(self, **kwargs):
+		super(RootBoxLayout, self).__init__(**kwargs)
+		self.event = None
+			
 	def play(self):
-		Clock.schedule_interval(self.create_random_image, 0.1)
+		if self.event == None:
+			self.event = Clock.schedule_interval(self.create_random_image, 0.1)
+		else:
+			self.event.cancel()
+			self.event = None
+
 		
 	def create_random_image(self, *args):
 		self.ids.print_box.canvas.clear()
